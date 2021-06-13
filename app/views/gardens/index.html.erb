@@ -1,0 +1,18 @@
+<h1>List of gardens</h1>
+<div class="container">
+<div class= "row">
+<% @gardens.each do |garden| %>
+<div class="col-6">
+<%= garden.name %>
+<%= link_to  "Update", edit_garden_path(garden) %>
+<%= link_to "Delete", garden_path(garden),method: :delete %>
+
+<%= link_to  "Details", garden_path(garden) %>
+<img src=<%= garden.banner_url%> style="width: 100%;">
+</div>
+<% end %>
+</div>
+</div>
+
+<%= link_to  "create a new garden", new_garden_path %>
+

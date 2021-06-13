@@ -1,0 +1,21 @@
+<h1><%= @garden.name %></h1>
+
+<ul>
+<div class="row">
+<%@garden.plants.each do |plant|%>
+ <div class="col-4">
+    <%= plant.name %>
+    <%= link_to  "add a tag", new_plant_planttag_path(plant) %>
+    <%= link_to  "delete", plants_path,method: "delete"%>
+    <img src=<%= plant.image_url %>>
+</div>
+  <% end %>
+</div>
+</ul>
+<p>add a new plant</p>
+<%= simple_form_for [@garden,@plant] do |f| %>
+<%= f.input :name %>
+<%= f.input :image_url %>
+<%= f.submit 'Add a plant' %>
+<% end %>
+
