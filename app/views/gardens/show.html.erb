@@ -5,6 +5,9 @@
 <%@garden.plants.each do |plant|%>
  <div class="col-4">
     <%= plant.name %>
+    <% plant.tags.each do |tag| %>
+    <li><%= tag.name %></li>
+    <% end %>
     <%= link_to  "add a tag", new_plant_planttag_path(plant) %>
     <%= link_to  "delete", plants_path,method: "delete"%>
     <img src=<%= plant.image_url %>>
